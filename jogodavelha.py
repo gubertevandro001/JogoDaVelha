@@ -3,13 +3,14 @@ tabuleiro = []
 for i in range(0, 3):
     lugares = []
     for j in range(0, 3):
-        lugares.append('()')
+        lugares.append('_')
     tabuleiro.append(lugares)
 
-def mostrar_tabuleiro(): #Não consegui deixar o tabuleiro bonito e elegante, mas o jogo funciona perfeitamente
-    for l, linhas in enumerate(tabuleiro):
-        print(f'{linhas}')
-    print('-' * 30)
+def mostrar_tabuleiro():
+    for lugares in tabuleiro:
+        for posicao in lugares:
+            print(posicao, end=' ')
+        print()
 
 def mensagem_inicial():
     print('-' * 30)
@@ -45,7 +46,7 @@ def jogadores_jogadas():
     while jogo:
         while True:
             try:
-                jog1 = int(input('Em Qual Posição Você Deseja Jogar Jogador 1? (Informe Posições de 0 a 8): '))
+                jog1 = int(input('\nEm Qual Posição Você Deseja Jogar Jogador 1? (Informe Posições de 0 a 8): '))
                 while jog1 in lista_jogadas or jog1 < 0 or jog1 > 8:
                     print('Posição Já Ocupada! Ou Posição Não Existente')
                     jog1 = int(input('Em Qual Posição Você Deseja Jogar Jogador 1? (Informe Posições de 0 a 8): '))
@@ -80,7 +81,7 @@ def jogadores_jogadas():
 
                 while True:
                     try:
-                        jog2 = int(input('Em Qual Posição Você Deseja Jogar Jogador 2? (Informe Posições de 0 a 8): '))
+                        jog2 = int(input('\nEm Qual Posição Você Deseja Jogar Jogador 2? (Informe Posições de 0 a 8): '))
                         while jog2 in lista_jogadas or jog2 < 0 or jog2 > 8:
                             print('Posição Já Ocupada! Ou Posição Não Existente')
                             jog2 = int(input('Em Qual Posição Você Deseja Jogar Jogador 2? (Informe Posições de 0 a 8): '))
